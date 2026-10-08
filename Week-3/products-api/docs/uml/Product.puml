@@ -9,4 +9,18 @@ class Product {
 + getName() : String
 + getPrice() : double
 }
+
+class Customer{
+- id : Long
+- name : String
+- email : String
+- address : Address
++ Customer()
++ Customer(id : Long, name : String, email : String, address : Address)
++ getId() : Long
++ getName() : String
++ getEmail() : String
++ getAddress() : Address
+
+}
 @enduml
