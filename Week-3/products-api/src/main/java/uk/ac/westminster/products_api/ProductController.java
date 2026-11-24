@@ -30,4 +30,10 @@ public class ProductController {
     public List<Product> search(@RequestParam String name) {
         return productService.findByName(name);
     }
+    @PostMapping("/products/digital")
+    public DigitalProduct addDigitalProduct(
+            @RequestBody DigitalProduct product) {
+
+        return productService.addDigitalProduct(product);
+    }
 }
