@@ -18,10 +18,16 @@ public class ProductController {
     public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id).orElse(null);
     }
+
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody DigitalProduct product) {
+
+        // Product is abstract, so Jackson cannot create it directly.
+        // We temporarily accept DigitalProduct instead.
+
         return productService.addProduct(product);
     }
+
     @DeleteMapping("/products/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
@@ -36,4 +42,11 @@ public class ProductController {
 
         return productService.addDigitalProduct(product);
     }
+
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+
+        return productService.getAllSummaries();
+    }
+
 }
